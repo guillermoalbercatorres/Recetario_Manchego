@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RecetarioManchego</string>
+    <string name="dificultad_facil">dificultad facil</string>
+    <string name="dificultad_media">dificultad media</string>
+    <string name="dificultad_alta">dificultad alta</string>
+</resources>
