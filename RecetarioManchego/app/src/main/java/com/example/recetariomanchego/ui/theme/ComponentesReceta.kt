@@ -176,7 +176,7 @@ fun TarjetaReceta(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .animateContentSize(label = "tamanoTarjetaReceta")
+            .animateContentSize()
     ) {
         Card(
             onClick = onAlternar,
