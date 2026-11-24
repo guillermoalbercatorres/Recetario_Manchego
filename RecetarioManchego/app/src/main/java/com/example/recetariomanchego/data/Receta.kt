@@ -15,5 +15,6 @@ data class Receta(
     val comarca: String,
     val ingredientes: List<String>,
     val pasos: List<String>,
+    val esFavorita: Boolean=false,
     @param:DrawableRes val imagenId: Int,
 )

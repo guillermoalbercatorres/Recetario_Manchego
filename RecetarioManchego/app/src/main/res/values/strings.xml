@@ -13,4 +13,8 @@
     <string name="dificultad_facil">Fácil</string>
     <string name="dificultad_media">Media</string>
     <string name="dificultad_alta">Alta</string>
+    <string name="favorita">Favorita</string>
+    <string name="buscar_receta">Buscar receta</string>
+    <string name="borrar_busqueda">Borrar búsqueda</string>
+    <string name="sin_resultados_busqueda">No se han encontrado recetas.</string>
 </resources>

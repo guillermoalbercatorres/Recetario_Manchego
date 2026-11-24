@@ -14,4 +14,7 @@
     <string name="dificultad_media">Medium</string>
     <string name="dificultad_alta">Hard</string>
     <string name="favorita">Favorite</string>
+    <string name="buscar_receta">Search recipe</string>
+    <string name="borrar_busqueda">Clear search</string>
+    <string name="sin_resultados_busqueda">No recipes found.</string>
 </resources>
