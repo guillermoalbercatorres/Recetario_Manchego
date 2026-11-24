@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Recetario Manchego</string>
+    <string name="titulo_lista">Traditional Recipes</string>
+    <string name="volver">Back</string>
+    <string name="ver_receta_completa">View full recipe</string>
+    <string name="titulo_ingredientes">Ingredients</string>
+    <string name="titulo_elaboracion">Preparation</string>
+    <string name="resumen_receta">%1$d min | %2$s | %3$s</string>
+    <string name="resumen_corto">%1$d min | %2$s</string>
+    <string name="comarca_formato">Region: %1$s</string>
+    <string name="cd_foto_receta">Photo of %1$s</string>
+    <string name="receta_no_encontrada">Requested recipe not found.</string>
+    <string name="dificultad_facil">Easy</string>
+    <string name="dificultad_media">Medium</string>
+    <string name="dificultad_alta">Hard</string>
+    <string name="favorita">Favorite</string>
+</resources>

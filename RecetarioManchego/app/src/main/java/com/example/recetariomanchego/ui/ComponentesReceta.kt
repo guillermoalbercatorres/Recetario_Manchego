@@ -1,4 +1,4 @@
-package com.example.recetariomanchego.ui.theme
+package com.example.recetariomanchego.ui
 
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
@@ -21,10 +21,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -32,6 +34,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -40,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import com.example.recetariomanchego.R
 import com.example.recetariomanchego.data.Receta
 import com.example.recetariomanchego.data.recetasIniciales
+import androidx.compose.material.icons.filled.FavoriteBorder
 
 // Bloque reutilizable: no sabe en qué layout se va a colocar (lista o ficha).
 // Quien lo usa decide su tamaño con el modifier.
@@ -161,6 +165,7 @@ fun TarjetaReceta(
     receta: Receta,
     expandida: Boolean,
     onAlternar: () -> Unit,
+    onAlternarFavorita: () -> Unit,
     onVerFicha: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -192,6 +197,19 @@ fun TarjetaReceta(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
+                val colorCorazon by animateColorAsState(
+                    targetValue = if (receta.esFavorita) Color.Red else MaterialTheme.colorScheme.onSurfaceVariant,
+                    label = "colorFavorita"
+                )
+
+                // ... dentro del Row de la Tarjeta ...
+                IconButton(onClick = onAlternarFavorita) {
+                    Icon(
+                        imageVector = if (receta.esFavorita) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                        contentDescription = stringResource(R.string.favorita),
+                        tint = colorCorazon
+                    )
+                }
                 BloqueFoto(receta = receta, modifier = Modifier.size(72.dp))
                 Column(modifier = Modifier.weight(1f)) {
                     Text(text = receta.nombre, style = MaterialTheme.typography.titleLarge)
@@ -235,11 +253,12 @@ fun TarjetaReceta(
 @Preview(showBackground = true, name = "Claro")
 @Composable
 private fun TarjetaRecetaPreviewClaro() {
-    RecetarioManchegoTheme {
+    _root_ide_package_.com.example.recetariomanchego.ui.theme.RecetarioManchegoTheme {
         TarjetaReceta(
             receta = recetasIniciales().first(),
             expandida = true,
             onAlternar = {},
+            onAlternarFavorita = {}, // <- AÑADE ESTO EN LAS PREVIEWS
             onVerFicha = {},
             modifier = Modifier.padding(16.dp)
         )
@@ -253,12 +272,13 @@ private fun TarjetaRecetaPreviewClaro() {
 )
 @Composable
 private fun TarjetaRecetaPreviewOscuro() {
-    RecetarioManchegoTheme {
+    _root_ide_package_.com.example.recetariomanchego.ui.theme.RecetarioManchegoTheme {
         Surface {
             TarjetaReceta(
                 receta = recetasIniciales().first(),
                 expandida = true,
                 onAlternar = {},
+                onAlternarFavorita = {}, // <- AÑADE ESTO EN LAS PREVIEWS
                 onVerFicha = {},
                 modifier = Modifier.padding(16.dp)
             )
@@ -273,11 +293,12 @@ private fun TarjetaRecetaPreviewOscuro() {
 )
 @Composable
 private fun TarjetaRecetaPreviewIngles() {
-    RecetarioManchegoTheme {
+    _root_ide_package_.com.example.recetariomanchego.ui.theme.RecetarioManchegoTheme {
         TarjetaReceta(
             receta = recetasIniciales().first(),
             expandida = true,
             onAlternar = {},
+            onAlternarFavorita = {}, // <- AÑADE ESTO EN LAS PREVIEWS
             onVerFicha = {},
             modifier = Modifier.padding(16.dp)
         )
